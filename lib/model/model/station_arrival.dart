@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'real_time_arrival.freezed.dart';
+part 'station_arrival.freezed.dart';
 
-part 'real_time_arrival.g.dart';
+part 'station_arrival.g.dart';
 
 @freezed
-class RealTimeArrival with _$RealTimeArrival {
-  const factory RealTimeArrival({
+class StationArrival with _$StationArrival {
+  const factory StationArrival({
     required String updnLine,
     required String trainLineNm,
     required String statnNm,
@@ -15,8 +15,7 @@ class RealTimeArrival with _$RealTimeArrival {
     required String recptnDt,
     required String arvlMsg2,
     required String arvlMsg3,
-  }) = _RealTimeArrival;
+  }) = _StationArrival;
 
-  factory RealTimeArrival.fromJson(Map<String, Object?> json) =>
-      _$RealTimeArrivalFromJson(json);
+  factory StationArrival.fromJson(Map<String, Object?> json) => _$StationArrivalFromJson(json);
 }

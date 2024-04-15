@@ -12,7 +12,7 @@ class StationArrivalDataSource {
     required http.Client client,
   }) : _client = client;
 
-  Future<StationArrivalDto> getStationArrivalResult(String stationName) async {
+  Future<StationArrivalInfoDto> getStationArrivalResult(String stationName) async {
     final http.Response response =
         await _client.get(Uri.parse('$_baseUrl$stationName'));
 
@@ -21,6 +21,6 @@ class StationArrivalDataSource {
         : throw Exception(
             'Request failed with status: ${response.statusCode}.');
 
-    return StationArrivalDto.fromJson(decodedJson);
+    return StationArrivalInfoDto.fromJson(decodedJson);
   }
 }

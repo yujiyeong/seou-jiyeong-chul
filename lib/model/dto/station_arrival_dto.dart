@@ -1,23 +1,23 @@
-class StationArrivalDto {
-  StationArrivalDto({
+class StationArrivalInfoDto {
+  StationArrivalInfoDto({
     this.errorMessage,
     this.realtimeArrivalList,
   });
 
-  StationArrivalDto.fromJson(dynamic json) {
+  StationArrivalInfoDto.fromJson(dynamic json) {
     errorMessage = json['errorMessage'] != null
-        ? ErrorMessage.fromJson(json['errorMessage'])
+        ? ErrorMessageDto.fromJson(json['errorMessage'])
         : null;
     if (json['realtimeArrivalList'] != null) {
       realtimeArrivalList = [];
       json['realtimeArrivalList'].forEach((v) {
-        realtimeArrivalList?.add(RealtimeArrivalList.fromJson(v));
+        realtimeArrivalList?.add(RealtimeArrivalDto.fromJson(v));
       });
     }
   }
 
-  ErrorMessage? errorMessage;
-  List<RealtimeArrivalList>? realtimeArrivalList;
+  ErrorMessageDto? errorMessage;
+  List<RealtimeArrivalDto>? realtimeArrivalList;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -32,8 +32,8 @@ class StationArrivalDto {
   }
 }
 
-class RealtimeArrivalList {
-  RealtimeArrivalList({
+class RealtimeArrivalDto {
+  RealtimeArrivalDto({
     this.beginRow,
     this.endRow,
     this.curPage,
@@ -66,7 +66,7 @@ class RealtimeArrivalList {
     this.arvlCd,
   });
 
-  RealtimeArrivalList.fromJson(dynamic json) {
+  RealtimeArrivalDto.fromJson(dynamic json) {
     beginRow = json['beginRow'];
     endRow = json['endRow'];
     curPage = json['curPage'];
@@ -166,8 +166,8 @@ class RealtimeArrivalList {
   }
 }
 
-class ErrorMessage {
-  ErrorMessage({
+class ErrorMessageDto {
+  ErrorMessageDto({
     this.status,
     this.code,
     this.message,
@@ -176,7 +176,7 @@ class ErrorMessage {
     this.total,
   });
 
-  ErrorMessage.fromJson(dynamic json) {
+  ErrorMessageDto.fromJson(dynamic json) {
     status = json['status'];
     code = json['code'];
     message = json['message'];
