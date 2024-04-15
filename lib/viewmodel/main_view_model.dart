@@ -17,7 +17,7 @@ class MainViewModel with ChangeNotifier {
   List<StationArrival> get stationArrivalList =>
       List.unmodifiable(_stationArrivalList);
 
-  void searchStation(String stationName) async {
+  Future<void> searchStation(String stationName) async {
     _stationArrivalList =
     await _stationArrivalRepository.getStationArrivalList(stationName);
     notifyListeners();
