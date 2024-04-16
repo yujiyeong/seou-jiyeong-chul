@@ -25,26 +25,37 @@ class _StationInfoWidgetState extends State<StationInfoWidget> {
           height: 100,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(
-                  children: [
-                    Text(widget._stationArrival.trainLineNm),
-                    const SizedBox(width: 24,),
-                    Text(widget._stationArrival.btrainSttus),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text('도착: ${widget._stationArrival.arvlMsg2}'),
-                    const SizedBox(width: 24,),
-                    Text(widget._stationArrival.updnLine),
-                    const SizedBox(width: 24,),
-                    Text('현재: ${widget._stationArrival.arvlMsg3}'),
-                  ],
-                ),
-              ],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(widget._stationArrival.trainLineNm),
+                      const SizedBox(
+                        width: 24,
+                      ),
+                      Text(widget._stationArrival.btrainSttus),
+                    ],
+                  ),
+                  Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('도착: ${widget._stationArrival.arvlMsg2}'),
+                      const SizedBox(
+                        width: 24,
+                      ),
+                      Text(widget._stationArrival.updnLine),
+                      const SizedBox(
+                        width: 24,
+                      ),
+                      Text('현재: ${widget._stationArrival.arvlMsg3}'),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
