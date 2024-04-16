@@ -3,9 +3,7 @@ import 'package:seou_jiyeong_chul/model/repository/station_arrival_repository.da
 
 import '../model/model/station_arrival.dart';
 
-
 class MainViewModel with ChangeNotifier {
-
   final StationArrivalRepository _stationArrivalRepository;
   List<StationArrival> _stationArrivalList = [];
 
@@ -13,13 +11,12 @@ class MainViewModel with ChangeNotifier {
     required StationArrivalRepository stationArrivalRepository,
   }) : _stationArrivalRepository = stationArrivalRepository;
 
-
   List<StationArrival> get stationArrivalList =>
       List.unmodifiable(_stationArrivalList);
 
-  Future<void> searchStation(String stationName) async {
+  void searchStation(String stationName) async {
     _stationArrivalList =
-    await _stationArrivalRepository.getStationArrivalList(stationName);
+        await _stationArrivalRepository.getStationArrivalList(stationName);
     notifyListeners();
   }
 }
